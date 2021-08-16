@@ -1,8 +1,7 @@
 Sock.destroy_all
 p "Populating the database..."
 
-user = User.new(username: "Derek", location: "Meguro")
-user.save!
+user = User.create!(username: "Derek", location: "Meguro", email: "derekkkkkkkkk@gmail.com", password: "123123")
 
 Sock.create(name: "cute purple socks", description: "Really cute purple socks that will be you feel sooo kawaii 💜", color: "purple", style: "high socks", size: 24.5, price: 2000, user_id: 1, photo_url: "https://m.media-amazon.com/images/I/61Xls0GWrRL._AC_UX679_.jpg")
 Sock.create(name: "sexy(???) thigh highs!!", description: "These babies will make bring all the boys to the yard", color: "magenta", style: "thigh highs", size: 20.0, price: 10000, user_id: 1, photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC2IvNRSNkC7FU7WhIJgYl7HipGZT-h7KFXA&usqp=CAU")
