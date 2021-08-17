@@ -3,10 +3,12 @@
   <div class="container">
     <p><%= sock.name %></p>
     <p><%= sock.description %></p>
+    <div class="container">
+      <ul>
+        <li><%= sock.color %></li>
+        <li><%= sock.style %></li>
+        <li><%= sock.price %></li>
+      </ul>
+    </div>
   </div>
-  <ul>
-  <li><%= sock.color %></li>
-  <li><%= sock.style %></li>
-  <li><%= sock.price %></li>
-  </ul>
 <% end %>
