@@ -14,5 +14,5 @@
   <%= @sock.user %>
 </p>
 
-<%= link_to 'Make a booking', new_sock_booking_path(:sock_id) %>
+<%= link_to 'Make a booking', new_sock_booking_path(@sock) %>
 <%= link_to 'Back', socks_path %>
