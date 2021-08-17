@@ -1,23 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <div class="card-trip">
+  <div class="card-trip mb-3">
     <%= image_tag "#{@sock.photo_url}", alt: "#{@sock.name}"%>
      <div class="card-trip-infos">
-      <p> <strong>Name:</strong><%= @sock.name %></p>
-      <p> <%= @sock.description %></p>
-      <p> <strong>Color:</strong><%= @sock.color %></p>
-      <p> <strong>Size:</strong><%= @sock.size %></p>
-      <p> <strong>Style:</strong><%= @sock.style %></p>
-      <p> <strong>Price:</strong><%= @sock.price %></p>
+      <p><strong>Name:</strong><%= @sock.name %></p>
+      <p><%= @sock.description %></p>
+      <p><strong>Color:</strong><%= @sock.color %></p>
+      <p><strong>Size:</strong><%= @sock.size %></p>
+      <p><strong>Style:</strong><%= @sock.style %></p>
+      <p><strong>Price:</strong><%= @sock.price %></p>
     </div>
   </div>
-</div>
-
-<p>
-  <strong>User:</strong>
-  <%= @sock.user.email %>
-</p>
 
 <%= link_to 'Make a booking', new_sock_booking_path(@sock), class: 'btn btn-success'%>
 <%= link_to 'Back', socks_path, class: 'btn btn-success' %>
+
+</div>
