@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container mt-5 align-items-center">
   <div class="card" style="width: 600px;">
-    <div class="card-body"><%= link_to "Login", new_user_session_path, class: 'btn btn-primary' %>
+    <div class="card-body">
+      <%= link_to "Login", new_user_session_path, class: 'btn btn-primary' %>
       <%= link_to "Signup", new_user_registration_path, class: 'btn btn-primary' %>
       <%= link_to "Browse Socks", socks_path %>
     </div>

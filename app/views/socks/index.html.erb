@@ -1,15 +1,20 @@
-<h1>If the sock fits...</h1>
+<div class="container my-5">
+  <h1>If the sock fits...</h1>
+</div>
 <% @socks.each do |sock| %>
   <div class="container">
-    <%= link_to 'Show', sock %>
-    <p><%= sock.name %></p>
-    <p><%= sock.description %></p>
-    <div class="container">
+    <div class="card-product mb-3">
+    <%= image_tag "#{sock.photo_url}", alt: "#{sock.name}"%>
+    <div class="card-product-infos ml-3">
+      <p><%= sock.name %></p>
+      <p><%= sock.description %></p>
       <ul>
         <li><%= sock.color %></li>
         <li><%= sock.style %></li>
         <li><%= sock.price %></li>
       </ul>
+      <%= link_to 'Show', sock %>
+    </div>
     </div>
   </div>
 <% end %>
