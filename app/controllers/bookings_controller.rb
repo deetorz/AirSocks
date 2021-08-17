@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.sock = @sock
     authorize @booking
     if @booking.save
-      redirect_to socks_path()
+      redirect_to dashboard_bookings_path
     else
       render :new
     end
