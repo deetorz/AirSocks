@@ -1,6 +1,4 @@
 <div class="container">
-  <h1>Dashboard::Bookings#index</h1>
-  <p>Find me in app/views/dashboard/bookings/index.html.erb</p>
   <ul class="nav tabs-underlined" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="active tab-underlined" id="home-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="home" aria-selected="true">Bookings</a>
@@ -33,4 +31,12 @@
       <% end %>
     </div>
   </div>
+
 </div>
+
+<h1>Show all the socks I own</h1>
+<% @current_user.socks.each do |sock| %>
+  <p><%= sock.name %><p>
+  <p><%= sock.description %>
+  <p><%= image_tag "#{sock.photo_url}", style: 'height:200px; width:auto;', alt: "#{sock.name}"%></p>
+<% end %>
