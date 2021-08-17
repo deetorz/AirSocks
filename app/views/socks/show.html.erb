@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag "#{@sock.photo_url}", alt: "#{@sock.name}"%>
+<p> <strong>Name:</strong><%= @sock.name %></p>
+<p> <%= @sock.description %></p>
+<p> <strong>Color:</strong><%= @sock.color %></p>
+<p> <strong>Size:</strong><%= @sock.size %></p>
+<p> <strong>Style:</strong><%= @sock.style %></p>
+<p> <strong>Price:</strong><%= @sock.price %></p>
+
+
+<p>
+  <strong>User:</strong>
+  <%= @sock.user %>
+</p>
+
+<%= link_to 'Make a booking', new_sock_booking_path(:sock_id) %>
+<%= link_to 'Back', socks_path %>
