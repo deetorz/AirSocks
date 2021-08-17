@@ -1,6 +1,7 @@
 <h1>If the sock fits...</h1>
 <% @socks.each do |sock| %>
   <div class="container">
+    <%= link_to 'Show', sock %>
     <p><%= sock.name %></p>
     <p><%= sock.description %></p>
     <div class="container">
