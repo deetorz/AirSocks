@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
 
   include Pundit
 
+  def after_sign_in_path_for(resource)
+    socks_path
+  end
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
