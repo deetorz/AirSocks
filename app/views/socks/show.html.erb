@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag "#{@sock.photo_url}", alt: "#{@sock.name}"%>
+<%= image_tag "#{@sock.photo_url}", style: 'height:200px; width:auto;', alt: "#{@sock.name}"%>
 <p> <strong>Name:</strong><%= @sock.name %></p>
 <p> <%= @sock.description %></p>
 <p> <strong>Color:</strong><%= @sock.color %></p>

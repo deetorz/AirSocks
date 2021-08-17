@@ -1,5 +1,7 @@
 class SocksController < ApplicationController
+  before_action :skip_authorization, only: :index
   before_action :set_sock, only: [:show, :edit, :update, :destroy]
+
   def index
     # @socks = Sock.all
     @socks = policy_scope(Sock)
@@ -23,6 +25,8 @@ class SocksController < ApplicationController
       render :new
     end
   end
+
+
 
   private
 
