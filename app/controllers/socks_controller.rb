@@ -1,5 +1,5 @@
 class SocksController < ApplicationController
-  before_action :skip_authorization, only: :index
+  before_action :authenticate_user!, except: [ :home, :index, :show]
   before_action :set_sock, only: [:show, :edit, :update, :destroy]
 
   def index
