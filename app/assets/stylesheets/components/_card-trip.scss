@@ -7,11 +7,11 @@
 .card-trip > img {
   height: 400px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card-trip h2 {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }

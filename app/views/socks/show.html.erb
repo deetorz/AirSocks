@@ -1,19 +1,25 @@
-<div class="container">
-  <div class="card-sock my-4">
-    <div class="card-sock-img">
-      <%= image_tag "#{@sock.photo_url}", alt: "#{@sock.name}"%>
-    </div>
-    <div class="card-sock-info">
-      <h2><strong><%= @sock.name %></strong></h2>
-      <p><%= @sock.description %></p>
+<div class="container mt-5">
+  <div class="card-trip img-fluid p-2">
+    <%= cl_image_tag @sock.photo.attached? ? cl_image_path(@sock.photo.key) : image_path(@sock.photo_url) %>
+    <div class="card-trip-infos">
       <div>
-        <p><strong>Color: </strong><%= @sock.color %></p>
-        <p><strong>Size: </strong><%= @sock.size %></p>
-        <p><strong>Style: </strong><%= @sock.style %></p>
-        <p><strong>Price:</strong><%= @sock.price %></p>
+        <h1><strong><%= @sock.name.capitalize %></strong></h1>
+        <p><%= @sock.description %></p>
+      </div>
+      <div class="d-flex">
+        <div>
+          <p><strong>Color: </strong><%= @sock.color.capitalize %></p>
+          <p><strong>Size: </strong><%= @sock.size %></p>
+        </div>
+        <div class="ml-3">
+          <p><strong>Style: </strong><%= @sock.style.capitalize %></p>
+          <p><strong>Price: ¥</strong><%= @sock.price %></p>
+        </div>
       </div>
     </div>
   </div>
-  <%= link_to 'Make a booking', new_sock_booking_path(@sock), class: 'btn-slide mr-2'%>
-  <%= link_to 'Back', socks_path, class: 'btn-slide' %>
+  <div class="d-flex align-items-center justify-content-center mt-3 ">
+    <%= link_to 'Make a booking', new_sock_booking_path(@sock), class: 'btn-slide mr-2'%>
+    <%= link_to 'Back', socks_path, class: 'btn-slide' %>
+  </div>
 </div>
