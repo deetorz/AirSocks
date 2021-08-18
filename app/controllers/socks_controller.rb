@@ -1,5 +1,5 @@
 class SocksController < ApplicationController
-  before_action :skip_authorization, only: :index
+  before_action :authenticate_user!, except: [ :home, :index, :show]
   before_action :set_sock, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -33,12 +33,10 @@ class SocksController < ApplicationController
     end
   end
 
-
-
   private
 
   def sock_params
-    params.require(:sock).permit(:name, :description, :color, :size, :price, :photo_url, :style, :address)
+    params.require(:sock).permit(:name, :description, :color, :size, :price, :photo, :style, :address)
   end
 
   # Use callbacks to share common setup or constraints between actions.
