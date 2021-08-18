@@ -1,17 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
-  <div class="card-trip mb-3">
-    <%= image_tag "#{@sock.photo_url}", alt: "#{@sock.name}"%>
-     <div class="card-trip-infos">
+  <div class="card-sock my-4">
+    <div class="card-sock-img">
+      <%= image_tag "#{@sock.photo_url}", alt: "#{@sock.name}"%>
+    </div>
+    <div class="card-sock-info">
       <h2><strong><%= @sock.name %></strong></h2>
       <p><%= @sock.description %></p>
-        <div>
+      <div>
         <p><strong>Color: </strong><%= @sock.color %></p>
         <p><strong>Size: </strong><%= @sock.size %></p>
         <p><strong>Style: </strong><%= @sock.style %></p>
         <p><strong>Price:</strong><%= @sock.price %></p>
-        </div>
+      </div>
     </div>
   </div>
   <%= link_to 'Make a booking', new_sock_booking_path(@sock), class: 'btn-slide mr-2'%>
