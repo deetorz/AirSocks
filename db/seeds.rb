@@ -1,7 +1,7 @@
 puts "cleaning db"
+Booking.destroy_all
 Sock.destroy_all
 User.destroy_all
-Booking.destroy_all
 puts "Populating the database..."
 
 User.create!(username: "Derek", location: "Meguro", email: "derek@gmail.com", password: "123123")
