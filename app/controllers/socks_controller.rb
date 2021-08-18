@@ -38,7 +38,7 @@ class SocksController < ApplicationController
   private
 
   def sock_params
-    params.require(:sock).permit(:name, :description, :color, :size, :price, :photo_url, :style)
+    params.require(:sock).permit(:name, :description, :color, :size, :price, :photo_url, :style, :address)
   end
 
   # Use callbacks to share common setup or constraints between actions.
