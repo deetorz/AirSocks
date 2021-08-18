@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_025744) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_socks_on_user_id"
