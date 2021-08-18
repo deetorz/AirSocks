@@ -6,13 +6,13 @@
     <div class="card-product mb-3">
     <%= image_tag "#{sock.photo_url}", alt: "#{sock.name}"%>
     <div class="card-product-infos ml-3">
-      <p><%= sock.name %></p>
+      <h2><%= sock.name.upcase %></h2>
       <p><%= sock.description %></p>
-      <ul>
-        <li><%= sock.color %></li>
-        <li><%= sock.style %></li>
-        <li><%= sock.price %></li>
-      </ul>
+
+        <%= sock.color %>
+        <%= sock.style %>
+        <%= sock.price %>
+
       <%= link_to 'Show', sock, class: 'btn-ghost' %>
     </div>
     </div>
