@@ -3,6 +3,8 @@ class Sock < ApplicationRecord
   has_many :bookings
   has_many :users_as_owner, through: :bookings
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   validates :name, presence: true
   validates :description, presence: true

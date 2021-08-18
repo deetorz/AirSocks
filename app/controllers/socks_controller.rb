@@ -5,6 +5,13 @@ class SocksController < ApplicationController
   def index
     # @socks = Sock.all
     @socks = policy_scope(Sock)
+    # the `geocoded` scope filters only socks with coordinates (latitude & longitude)
+    @markers = @socks.geocoded.map do |sock|
+      {
+        lat: sock.latitude,
+        lng: sock.longitude
+      }
+    end
   end
 
   def show
