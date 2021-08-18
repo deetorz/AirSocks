@@ -8,7 +8,7 @@
         <div class="card-product mb-3">
           <%= image_tag "#{sock.photo_url}", alt: "#{sock.name}"%>
           <div class="card-product-infos ml-3">
-            <h2><%= link_to sock.name, sock %></p></h2>
+            <h2 class="sock_name"><%= link_to sock.name, sock %></p></h2>
             <p><%= sock.description %></p>
             <div class="d-flex bd-highlight mt-2">
               <p class="p-2 flex-grow-1 bd-highlight"><%= sock.color.capitalize %></p>
@@ -23,10 +23,12 @@
         <% end %>
       </div>
     <div class="col">
-      <div id="map"
-        style="width: 100%; height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="sticky">
+        <div id="map"
+          style="width: 100%; height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
   </div>
