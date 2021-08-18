@@ -1,31 +1,32 @@
 <div class="container my-5">
   <h1>If the sock fits...</h1>
 </div>
-
-<div class="container d-flex">
-
   <div class="container">
-    <% @socks.each do |sock| %>
-     <div class="card-product mb-3">
-        <%= image_tag "#{sock.photo_url}", alt: "#{sock.name}"%>
-        <div class="card-product-infos ml-3">
-          <h2><%= link_to sock.name, sock %></p></h2>
-          <p><%= sock.description %></p>
-          <div class="d-flex bd-highlight mt-2">
-            <p class="p-2 flex-grow-1 bd-highlight"><%= sock.color.capitalize %></p>
-            <p class="p-2 flex-grow-1 bd-highlight"><%= sock.style.capitalize %></p>
-            <p class="p-2 flex-grow-1 bd-highlight"><strong>¥<%= sock.price %></strong></p>
-          </div>
-          <div class='mt-5'>
-            <span><%= link_to 'Show', sock, class: 'btn-ghost mt-5' %></span>
+    <div class="row">
+      <div class="col">
+        <% @socks.each do |sock| %>
+        <div class="card-product mb-3">
+          <%= image_tag "#{sock.photo_url}", alt: "#{sock.name}"%>
+          <div class="card-product-infos ml-3">
+            <h2><%= link_to sock.name, sock %></p></h2>
+            <p><%= sock.description %></p>
+            <div class="d-flex bd-highlight mt-2">
+              <p class="p-2 flex-grow-1 bd-highlight"><%= sock.color.capitalize %></p>
+              <p class="p-2 flex-grow-1 bd-highlight"><%= sock.style.capitalize %></p>
+              <p class="p-2 flex-grow-1 bd-highlight"><strong>¥<%= sock.price %></strong></p>
+            </div>
+            <div class='mt-5'>
+              <span><%= link_to 'Show', sock, class: 'btn-ghost mt-5' %></span>
+            </div>
           </div>
         </div>
+        <% end %>
       </div>
-    <% end %>
+    <div class="col">
+      <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
