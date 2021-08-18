@@ -4,16 +4,16 @@
   <div class="card-trip mb-3">
     <%= image_tag "#{@sock.photo_url}", alt: "#{@sock.name}"%>
      <div class="card-trip-infos">
-      <p><strong>Name:</strong><%= @sock.name %></p>
+      <h2><strong><%= @sock.name %></strong></h2>
       <p><%= @sock.description %></p>
-      <p><strong>Color:</strong><%= @sock.color %></p>
-      <p><strong>Size:</strong><%= @sock.size %></p>
-      <p><strong>Style:</strong><%= @sock.style %></p>
-      <p><strong>Price:</strong><%= @sock.price %></p>
+        <div>
+        <p><strong>Color: </strong><%= @sock.color %></p>
+        <p><strong>Size: </strong><%= @sock.size %></p>
+        <p><strong>Style: </strong><%= @sock.style %></p>
+        <p><strong>Price:</strong><%= @sock.price %></p>
+        </div>
     </div>
   </div>
-
-<%= link_to 'Make a booking', new_sock_booking_path(@sock), class: 'btn-slide mr-2'%>
-<%= link_to 'Back', socks_path, class: 'btn-slide' %>
-
+  <%= link_to 'Make a booking', new_sock_booking_path(@sock), class: 'btn-slide mr-2'%>
+  <%= link_to 'Back', socks_path, class: 'btn-slide' %>
 </div>
