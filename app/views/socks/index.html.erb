@@ -4,17 +4,19 @@
 <% @socks.each do |sock| %>
   <div class="container">
     <div class="card-product mb-3">
-    <%= image_tag "#{sock.photo_url}", alt: "#{sock.name}"%>
-    <div class="card-product-infos ml-3">
-      <h2><%= sock.name.upcase %></h2>
-      <p><%= sock.description %></p>
-
-        <%= sock.color %>
-        <%= sock.style %>
-        <%= sock.price %>
-
-      <%= link_to 'Show', sock, class: 'btn-ghost' %>
-    </div>
+      <%= image_tag "#{sock.photo_url}", alt: "#{sock.name}"%>
+      <div class="card-product-infos ml-3">
+        <h2><%= link_to sock.name, sock %></p></h2>
+        <p><%= sock.description %></p>
+        <div class="d-flex justify-content-between mt-2">
+          <p><%= sock.color.capitalize %></p>
+          <p><%= sock.style.capitalize %></p>
+          <p><strong>¥<%= sock.price %></strong></p>
+        </div>
+        <div class='mt-5'>
+          <%= link_to 'Show', sock, class: 'btn-ghost mt-5' %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
