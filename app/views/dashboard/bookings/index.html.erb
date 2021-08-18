@@ -1,41 +1,72 @@
 <div class="container">
   <ul class="nav tabs-underlined" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="active tab-underlined" id="home-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="home" aria-selected="true">Bookings</a>
+      <a class="active tab-underlined" id="home-tab" data-toggle="tab" href="#my-socks" role="tab" aria-controls="home" aria-selected="true">My Socks</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="tab-underlined" id="profile-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="profile" aria-selected="false">Bookings</a>
     </li>
     <li class="nav-item" role="presentation">
       <a class="tab-underlined" id="profile-tab" data-toggle="tab" href="#requests" role="tab" aria-controls="profile" aria-selected="false">Requests</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade py-3 show active" id="bookings" role="tabpanel" aria-labelledby="home-tab">
-      <% @bookings.each do |booking| %>
-        <%= image_tag "#{booking.sock.photo_url}", alt: "#{booking.sock.name}"%>
-        <p><%= booking.sock.name %></p>
-        <p><%= booking.sock.description %></p>
-        <p><%= booking.sock.size %></p>
-        <p><%= booking.sock.style %></p>
-        <p><%= booking.sock.color %></p>
-        <p><%= booking.sock.price %></p>
+    <div class="tab-pane fade py-3 show active" id="my-socks" role="tabpanel" aria-labelledby="home-tab">
+      <% if current_user.socks.present? %>
+        <div class="container">
+          <% current_user.socks.each do |sock| %>
+            <%= image_tag "#{sock.photo_url}", style: 'height:200px; width:auto;', alt: "#{sock.name}"%>
+            <p><%= sock.name %></p>
+            <p><%= sock.description %></p>
+            <p><%= sock.size %></p>
+            <p><%= sock.style %></p>
+            <p><%= sock.color %></p>
+            <p><%= sock.price %></p>
+          <% end %>
+        </div>
+      <% else %>
+      <div class="container"><h2>You haven't uploaded any socks yet!</h2></div>
       <% end %>
     </div>
+
+    <div class="tab-pane fade py-3" id="bookings" role="tabpanel" aria-labelledby="profile-tab">
+      <% if current_user.bookings.present? %>
+        <% @bookings.each do |booking| %>
+          <%= image_tag "#{booking.sock.photo_url}", style: 'height:200px; width:auto;', alt: "#{booking.sock.name}"%>
+          <p><%= booking.sock.name %></p>
+          <p><%= booking.sock.description %></p>
+          <p><%= booking.sock.size %></p>
+          <p><%= booking.sock.style %></p>
+          <p><%= booking.sock.color %></p>
+          <p><%= booking.sock.price %></p>
+          <p><%= booking.status %></p>
+        <% end %>
+      <% else %>
+        <div class="container"><h2>You haven't booked any socks yet!</h2></div>
+      <% end %>
+    </div>
+
     <div class="tab-pane fade py-3" id="requests" role="tabpanel" aria-labelledby="profile-tab">
-      <% @bookings_as_owner.each do |booking| %>
-        <%= image_tag "#{booking.sock.photo_url}", alt: "#{booking.sock.name}"%>
-        <p><%= booking.sock.name %></p>
-        <p><%= booking.sock.description %></p>
-        <p><%= booking.sock.size %></p>
-        <p><%= booking.sock.style %></p>
-        <p><%= booking.sock.color %></p>
-        <p><%= booking.sock.price %></p>
+      <% if @bookings_as_owner.where(status: "pending").present? %>
+        <% @bookings_as_owner.where(status: "pending").each do |booking| %>
+        <%= image_tag "#{booking.sock.photo_url}", style: 'height:200px; width:auto;', alt: "#{booking.sock.name}"%>
+        <p>From: <%= booking.start_date %></p>
+        <p>Until: <%= booking.end_date %></p>
+        <p>Requested by: <%= booking.user.email %></p>
+        <div style="display: flex">
+          <%= simple_form_for(booking) do |f| %>
+            <%= f.input :status, input_html: {value: "confirmed" }, as: :hidden %>
+            <%= f.submit "Accept", class: "btn-ghost mr-2" %>
+          <% end %>
+          <%= simple_form_for(booking) do |f| %>
+            <%= f.input :status, input_html: {value: "rejected" }, as: :hidden %>
+            <%= f.submit "Reject", class: "btn-ghost" %>
+          <% end %>
+        </div>
+        <% end %>
+      <% else %>
+        <div class="container"><h2>No pending requests!</h2></div>
       <% end %>
     </div>
   </div>
 </div>
-
-<h1>Show all the socks I own</h1>
-<% @current_user.socks.each do |sock| %>
-  <p><%= sock.name %><p>
-  <p><%= sock.description %>
-  <p><%= image_tag "#{sock.photo_url}", style: 'height:200px; width:auto;', alt: "#{sock.name}"%></p>
-<% end %>
