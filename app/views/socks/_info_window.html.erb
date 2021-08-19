@@ -1,3 +1,5 @@
 <h2><%= sock.name %></h2>
-<p><%= sock.price %></p>
-<%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key) : image_path(sock.photo_url) %>
+<p>Price: ¥<%= sock.price %></p>
+<%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key, :width => 120, :height => 120, :crop => :limit
+) : image_path(sock.photo_url, :width => 120, :height => 120, :crop => :limit
+) %>
