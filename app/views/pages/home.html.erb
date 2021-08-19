@@ -1,9 +1,57 @@
-<div class="container mt-5 align-items-center">
-  <div class="card" style="width: 600px;">
-    <div class="card-body">
-      <%= link_to "Login", new_user_session_path, class: 'btn-ghost' %>
-      <%= link_to "Signup", new_user_registration_path, class: 'btn-ghost' %>
-      <%= link_to "Browse Socks", socks_path, class: 'btn-ghost' %>
+<div class="hero-image">
+  <div class="hero-text">
+    <div class="mb-5">
+      <h1>Looking for a sock or two? We have you covered.</h1>
+      <p>Check out all the socks available.</p>
+    </div>
+    <div class="mt-3">
+      <%= link_to "See our socks!", socks_path, class: 'btn-slide' %>
     </div>
   </div>
 </div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mt-4 d-flex justify-content-center">
+        <h2>Step in a puddle? Got a hole in your sock? Dressing to impress?</h2>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card my-3">
+        <div class="card-body">
+          <h5 class="card-title">Find the perfect sock.</h5>
+          <p class="card-text">Renting socks has never been easier. Start searching and find the right sock for you today.</p>
+          <a href="users/sign_up" class="btn-ghost">Sign up</a>
+          <a href="users/sign_in" class="btn-ghost">Log-in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card my-3">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <h5 class="card-title">Looking to rent out your socks?</h5>
+          </div>
+          <p class="card-text">Socks have become the future of side-hustles. Log in or sign up and make your socks available today.</p>
+          <a href="users/sign_up" class="btn-ghost">Sign up</a>
+          <a href="users/sign_in" class="btn-ghost">Log-in</a>
+        </div>
+     </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="mt-2 mb-4 d-flex justify-content-center">
+        <h2>Find the perfect sock to fit your needs.</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
