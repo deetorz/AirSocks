@@ -5,11 +5,24 @@ class SocksController < ApplicationController
   def index
     # @socks = Sock.all
     @socks = policy_scope(Sock)
+    if params[:query].present?
+      sql_query = " \
+      socks.name @@ :query \
+      OR socks.description @@ :query \
+      OR socks.color @@ :query \
+      OR socks.style @@ :query \
+      OR socks.address @@ :query \
+      "
+      @socks = Sock.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @socks = policy_scope(Sock)
+    end
     # the `geocoded` scope filters only socks with coordinates (latitude & longitude)
     @markers = @socks.geocoded.map do |sock|
       {
         lat: sock.latitude,
-        lng: sock.longitude
+        lng: sock.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { sock: sock })
       }
     end
   end
