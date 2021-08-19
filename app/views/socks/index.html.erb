@@ -1,34 +1,30 @@
-<div class="container my-5">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <% @socks.each do |sock| %>
-        <div class="card-product mb-3">
-          <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key, :crop=>"lfill") : image_path(sock.photo_url) %>
-          <div class="card-product-infos ml-3">
-            <h2 class="sock_name"><%= link_to sock.name.capitalize, sock %></p></h2>
-            <p><%= sock.description %></p>
-            <div class="d-flex bd-highlight mt-2">
-              <p class="p-2 flex-grow-1 bd-highlight"><%= sock.color.capitalize %></p>
-              <p class="p-2 flex-grow-1 bd-highlight"><%= sock.style.capitalize %></p>
-              <p class="p-2 flex-grow-1 bd-highlight"><strong>¥<%= sock.price %></strong></p>
-            </div>
-            <div class='mt-5'>
-              <span><%= link_to 'Show', sock, class: 'btn-ghost mt-5' %></span>
+<div class="container d-flex mt-5">
+  <div class="row">
+      <% @socks.each do |sock| %>
+        <div class="col">
+          <div class="card-product mb-3">
+            <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key, :crop=>"lfill") : image_path(sock.photo_url) %>
+            <div class="card-product-infos text-center">
+              <h2><%= link_to sock.name.capitalize, sock %></h2>
+              <p><%= sock.description %></p><br>
+              <span><strong> ¥<%= sock.price %></strong></span>
+              <div class='mt-5'>
+              <span><%= link_to 'Show', sock, class: 'btn-ghost' %></span>
+              </div>
             </div>
           </div>
         </div>
-        <% end %>
-      </div>
-      <div class="col">
-        <div class="sticky">
-          <div id="map"
-            style="width: 100%; height: 600px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+      <% end %>
+  </div>
+
+    <div class="container">
+      <div class="sticky">
+        <div id="map"
+          style="width: 600px; height: 50vh; border-radius: 0 0 30% 0;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
-  </div>
+
 </div>

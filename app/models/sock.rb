@@ -17,6 +17,6 @@ class Sock < ApplicationRecord
   validates :size, presence: true, numericality: { only_float: true }
   validates :price, presence: true
   validates :price, numericality: { only_integer: true }
-  validates :photo, presence: true
+  # validates :photo, presence: true
   validates :style, presence: true
 end
