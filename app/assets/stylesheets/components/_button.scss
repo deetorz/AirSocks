@@ -6,9 +6,9 @@
   font-weight: normal;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  display: inline-block;
   &:hover {
     opacity: 1;
-    font-size: larger;
     text-decoration: none;
     color: #000000;
   }
@@ -25,6 +25,10 @@
   color: white;
   position: relative;
   text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .btn-slide::after {
@@ -38,11 +42,9 @@
   top: 7px;
   left: 7px;
   transition: 0.2s;
-  text-decoration: none;
 }
 
 .btn-slide:hover::after {
   top: 0px;
   left: 0px;
-  text-decoration: none;
 }
