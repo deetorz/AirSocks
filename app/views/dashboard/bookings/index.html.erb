@@ -21,11 +21,11 @@
             <div class="card-product">
               <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key) : image_path(sock.photo_url) %>
               <div class="card-product-infos">
-                <h2><%= sock.name %></p></h2>
-                <p><%= sock.description %></p>
+                <h2><%= sock.name.capitalize %></p></h2>
+                <p><%= sock.description.capitalize %></p>
                 <p>Size: <%= sock.size %></p>
-                <p>Style: <%= sock.style %></p>
-                <p>Color: <%= sock.color %></p>
+                <p>Style: <%= sock.style.capitalize %></p>
+                <p>Color: <%= sock.color.capitalize %></p>
                 <p>Price: <%= sock.price %></p>
               </div>
             </div>
@@ -49,11 +49,11 @@
                 <div class="card-product mb-3">
                   <%= cl_image_tag booking.sock.photo.key, style: 'height:200px; width:auto;', alt: "#{booking.sock.name}"%>
                   <div class="card-product-infos">
-                    <h2><%= booking.sock.name %></h2>
-                    <p><%= booking.sock.description %></p>
+                    <h2><%= booking.sock.name.capitalize %></h2>
+                    <p><%= booking.sock.description.capitalize %></p>
                     <p><%= booking.sock.size %></p>
-                    <p><%= booking.sock.style %></p>
-                    <p><%= booking.sock.color %></p>
+                    <p><%= booking.sock.style.capitalize %></p>
+                    <p><%= booking.sock.color.capitalize %></p>
                     <p><%= booking.sock.price %></p>
                   </div>
                 </div>
@@ -64,11 +64,11 @@
                 <div class="card-product mb-3">
                   <%= cl_image_tag booking.sock.photo.key, style: 'height:200px; width:auto;', alt: "#{booking.sock.name}"%>
                   <div class="card-product-infos">
-                    <h2><%= booking.sock.name %></h2>
-                    <p><%= booking.sock.description %></p>
+                    <h2><%= booking.sock.name.capitalize %></h2>
+                    <p><%= booking.sock.description.capitalize %></p>
                     <p><%= booking.sock.size %></p>
-                    <p><%= booking.sock.style %></p>
-                    <p><%= booking.sock.color %></p>
+                    <p><%= booking.sock.style.capitalize %></p>
+                    <p><%= booking.sock.color.capitalize %></p>
                     <p><%= booking.sock.price %></p>
                   </div>
                 </div>
