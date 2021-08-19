@@ -22,7 +22,8 @@ class SocksController < ApplicationController
       {
         lat: sock.latitude,
         lng: sock.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { sock: sock })
+        info_window: render_to_string(partial: "info_window", locals: { sock: sock }),
+        image_url: helpers.asset_url("marker.png")
       }
     end
   end

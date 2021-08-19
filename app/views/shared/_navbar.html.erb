@@ -1,10 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to socks_path, class: "navbar-brand" do %>
-    <p class="nav-name"><i class="ml-1 fas fa-socks"></i></p>
-    <% end %>
-
-  <%= link_to socks_path, class: "navbar-brand" do %>
-    <p class="nav-name">Air Socks</i></p>
+  <%= link_to socks_path, class: "navbar-brand d-flex" do %>
+      <p class="nav-name"><i class="ml-1 fas fa-socks"></i></p>
+      <p class="nav-name ml-2">Air Socks</p>
     <% end %>
 
     <%= form_tag socks_path, method: :get do %>
@@ -32,11 +29,14 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Home", socks_path, class: 'mr-3 btn-ghost' %>
-
         </li>
 
         <li class="nav-item active">
-          <%= current_user.nil? ? "Hello!" : current_user.email  %>
+          <div class="d-flex align-items-center">
+            <% if current_user.present? %>
+              <p class="m-0"><%= current_user.username.present? ? "#{current_user.username}" : "#{current_user.email}" %></p>
+            <% end %>
+          </div>
         </li>
 
         <li class="nav-item dropdown">
@@ -48,7 +48,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "btn-ghost nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "btn-ghost" %>
         </li>
       <% end %>
     </ul>
