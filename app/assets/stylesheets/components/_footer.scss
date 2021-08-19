@@ -1,0 +1,24 @@
+// .footer {
+//   position: fixed;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   background-color: #f8a2a2;
+//   color: rgb(0, 0, 0);
+//   text-align: center;
+// }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8a2a2;
+  padding: 10px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  font-family: $headers-font;
+  &a:hover {
+    text-decoration: none;
+  }
+}

@@ -17,6 +17,7 @@
       <% if current_user.socks.present? %>
         <div class="container">
           <% current_user.socks.each do |sock| %>
+
             <div class="card-product">
               <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key) : image_path(sock.photo_url) %>
               <div class="card-product-infos">
