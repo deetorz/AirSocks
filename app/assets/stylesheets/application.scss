@@ -23,3 +23,14 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+a {
+  color: black;
+  &:hover {
+    text-decoration: none;
+    font-size: larger;
+    color: black;
+    transition: 0.5s;
+  }
+
+}
