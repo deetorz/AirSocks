@@ -40,4 +40,5 @@ const initMapbox = () => {
   }
 };
 
+
 export { initMapbox };
