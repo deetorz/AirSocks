@@ -19,10 +19,10 @@
     </div>
   </div>
   <div class="d-flex align-items-center justify-content-center mt-3 ">
-    <% if @sock.user_id == current_user.id %>
-      <%= link_to 'Back', socks_path, class: 'btn-slide' %>
-    <% else %>
+    <% if current_user.nil? %>
       <%= link_to 'Make a booking', new_sock_booking_path(@sock), class: 'btn-slide mr-2'%>
+      <%= link_to 'Back', socks_path, class: 'btn-slide' %>
+    <% else @sock.user_id == current_user.id %>
       <%= link_to 'Back', socks_path, class: 'btn-slide' %>
     <% end %>
   </div>
