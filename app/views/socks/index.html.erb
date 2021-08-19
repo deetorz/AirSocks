@@ -6,7 +6,7 @@
       <div class="col">
         <% @socks.each do |sock| %>
         <div class="card-product mb-3">
-          <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key) : image_path(sock.photo_url) %>
+          <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key, :crop=>"lfill") : image_path(sock.photo_url) %>
           <div class="card-product-infos ml-3">
             <h2 class="sock_name"><%= link_to sock.name.capitalize, sock %></p></h2>
             <p><%= sock.description %></p>
