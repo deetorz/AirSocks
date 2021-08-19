@@ -7,6 +7,24 @@
     <p class="nav-name">Air Socks</i></p>
     <% end %>
 
+
+
+    <%= form_tag socks_path, method: :get do %>
+    <div class="d-flex">
+    <div>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a sock"
+      %>
+      </div>
+      <div>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+  </div>
+    <% end %>
+
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

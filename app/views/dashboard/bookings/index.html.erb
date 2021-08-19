@@ -16,7 +16,7 @@
         <div class="container">
           <% current_user.socks.each do |sock| %>
           <div class="card-product">
-            <%= image_tag "#{sock.photo_url}", style: 'height:200px; width:auto;', alt: "#{sock.name}"%>
+            <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key) : image_path(sock.photo_url) %>
             <div class="card-product-infos">
               <h2><%= sock.name %></p></h2>
               <p><%= sock.description %></p>
