@@ -1,4 +1,5 @@
-require 'cloudinary'
+require 'open-uri'
+require 'faker'
 
 puts "cleaning db"
 Booking.destroy_all
@@ -6,9 +7,29 @@ Sock.destroy_all
 User.destroy_all
 puts "Populating the database..."
 
-User.create!(username: "Derek", location: "Meguro", email: "derek@gmail.com", password: "123123")
 
-Sock.create(
+10.times do
+  file = URI.open('https://thispersondoesnotexist.com/image')
+  user = User.create!(
+    email: Faker::Internet.safe_email,
+    password: '123123',
+    username: Faker::Superhero.name
+  )
+  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+end
+
+puts "created randos"
+
+file = URI.open('https://thispersondoesnotexist.com/image')
+user = User.create!(
+  username: "Derek",
+  location: "Meguro",
+  email: "derek@gmail.com",
+  password: "123123"
+)
+user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+
+Sock.create!(
   name: "Petty AF",
   description: "When you're feeling spicy.",
   color: "Pink",
@@ -19,7 +40,7 @@ Sock.create(
   photo_url: "https://res.cloudinary.com/meru808/image/upload/v1629377200/Airsocks/erik-mclean-gEi0EgoD_Hs-unsplash_shzjlc.jpg",
   address: "1-18-8 Shintomi, Chuo City, Tokyo"
 )
-Sock.create(
+Sock.create!(
   name: "Sexy Lipps",
   description: "These babies will bring all the boys to the yard",
   color: "Red and white",
@@ -29,7 +50,18 @@ Sock.create(
   photo_url: "https://res.cloudinary.com/meru808/image/upload/v1629377200/Airsocks/hanna-balan-gBsKvlZU4uk-unsplash_eazgcb.jpg",
   address: "2-3-1 Nishishinbashi, Minato City, Tokyo"
 )
-Sock.create(
+
+file = URI.open('https://thispersondoesnotexist.com/image')
+user = User.create!(
+  username: "Mel",
+  location: "Kyoto",
+  email: "mel@gmail.com",
+  password: "123123"
+)
+user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+
+
+Sock.create!(
   name: "Left to Right",
   description: "Do the hokey pokey",
   color: "Black",
@@ -41,11 +73,7 @@ Sock.create(
   address: "2-9-1 Nihonbashi, Chuo City, Tokyo"
 )
 
-puts "Created #{User.last.username}"
-
-User.create!(username: "Mel", location: "Meguro", email: "mel@gmail.com", password: "123123")
-
-Sock.create(
+Sock.create!(
   name: "Go bananas!",
   description: "Try not to eat them!",
   color: "Pink and yellow",
@@ -55,7 +83,7 @@ Sock.create(
   photo_url: "https://res.cloudinary.com/meru808/image/upload/v1629377200/Airsocks/gabrielle-henderson-RKHGV6ESIlo-unsplash_qgrebp.jpg",
   address: "Starbucks, 赤坂1-8-1, Tokyo, Tokyo Prefecture 107-0052, Japan"
 )
-Sock.create(
+Sock.create!(
   name: "Wicked",
   description: "Something wicked this way comes...",
   color: "Red and orange",
@@ -67,11 +95,16 @@ Sock.create(
   address: "Narita International Airport"
 )
 
-puts "Created #{User.last.username}"
+file = URI.open('https://thispersondoesnotexist.com/image')
+user = User.create!(
+  username: "Anthony",
+  location: "Meguro",
+  email: "anthony@gmail.com",
+  password: "123123"
+)
+user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 
-User.create!(username: "Anthony", location: "Meguro", email: "anthony@gmail.com", password: "123123")
-
-Sock.create(
+Sock.create!(
   name: "Hand socks",
   description: "Sometimes you just need socks for your hands.",
   color: "Salmon",
@@ -82,5 +115,3 @@ Sock.create(
   photo_url: "https://res.cloudinary.com/meru808/image/upload/v1629377199/Airsocks/thought-catalog-FACFpJVoMJs-unsplash_zwudav.jpg",
   address: "Lawson, 赤坂1-5-14, Tokyo, Tokyo Prefecture 107-0052, Japan"
 )
-
-puts "Created #{User.last.username} user and #{Sock.count} socks!"
