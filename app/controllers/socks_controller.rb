@@ -29,6 +29,15 @@ class SocksController < ApplicationController
   end
 
   def show
+    @socks = policy_scope(Sock)
+    @markers = @socks.where(id: params[:id]).geocoded.map do |sock|
+      {
+        lat: sock.latitude,
+        lng: sock.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { sock: sock }),
+        image_url: helpers.asset_url("sockspink.png")
+      }
+    end
   end
 
   def new
