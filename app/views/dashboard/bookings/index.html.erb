@@ -46,7 +46,7 @@
               <div class="container">
                 <h2>Pending</h2>
                 <div class="card-product mb-3">
-                  <%= cl_image_tag booking.photo.attached? ? cl_image_path(booking.photo.key) : image_path(booking.photo_url) %>
+                  <%= cl_image_tag booking.sock.photo.attached? ? cl_image_path(booking.sock.photo.key) : image_path(booking.sock.photo_url) %>
                   <div class="card-product-infos">
                     <h2><%= booking.sock.name.capitalize %></h2>
                     <p><%= booking.sock.description.capitalize %></p>
@@ -61,7 +61,7 @@
               <div class="container">
                 <h2>Confirmed</h2>
                 <div class="card-product mb-3">
-                  <%= cl_image_tag booking.sock.photo.key, style: 'height:200px; width:auto;', alt: "#{booking.sock.name}"%>
+                  <%= cl_image_tag booking.sock.photo.attached? ? cl_image_path(booking.sock.photo.key) : image_path(booking.sock.photo_url) %>
                   <div class="card-product-infos">
                     <h2><%= booking.sock.name.capitalize %></h2>
                     <p><%= booking.sock.description.capitalize %></p>
