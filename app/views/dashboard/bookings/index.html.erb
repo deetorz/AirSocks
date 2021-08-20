@@ -21,7 +21,7 @@
             <div class="card-product">
               <%= cl_image_tag sock.photo.attached? ? cl_image_path(sock.photo.key) : image_path(sock.photo_url) %>
               <div class="card-product-infos">
-                <h2><%= sock.name.capitalize %></p></h2>
+                <h2><%= link_to sock.name.capitalize, sock %></p></h2>
                 <p><%= sock.description.capitalize %></p>
                 <p>Size: <%= sock.size %></p>
                 <p>Style: <%= sock.style.capitalize %></p>
