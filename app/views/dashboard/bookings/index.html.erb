@@ -46,7 +46,7 @@
               <div class="container">
                 <h2>Pending</h2>
                 <div class="card-product mb-3">
-                  <%= cl_image_tag booking.sock.photo.key, style: 'height:200px; width:auto;', alt: "#{booking.sock.name}"%>
+                  <%= cl_image_tag booking.photo.attached? ? cl_image_path(booking.photo.key) : image_path(booking.photo_url) %>
                   <div class="card-product-infos">
                     <h2><%= booking.sock.name.capitalize %></h2>
                     <p><%= booking.sock.description.capitalize %></p>
@@ -83,11 +83,14 @@
     </div>
 
 
+
     <div class="tab-pane fade py-3" id="requests" role="tabpanel" aria-labelledby="profile-tab">
       <div class="container mb-3">
         <% if @bookings_as_owner.where(status: "pending").present? %>
+        <div class="card-product mb-3">
           <% @bookings_as_owner.where(status: "pending").each do |booking| %>
-            <%= cl_image_tag booking.sock.photo.key, style: 'height:200px; width:auto;', alt: "#{booking.sock.name}"%>
+            <%= cl_image_tag booking.sock.photo.attached? ? cl_image_path(booking.sock.photo.key) : image_path(booking.sock.photo_url) %>
+            <div class="card-product-infos">
             <p>From: <%= booking.start_date %></p>
             <p>Until: <%= booking.end_date %></p>
             <p>Requested by: <%= booking.user.email %></p>
@@ -101,6 +104,7 @@
                 <%= f.submit "Reject", class: "btn-ghost" %>
               <% end %>
             </div>
+           </div>
           <% end %>
         <% else %>
           <div class="container">
@@ -109,6 +113,6 @@
         <% end %>
       </div>
     </div>
-
+</div>
   </div>
 </div>
