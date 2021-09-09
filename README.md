@@ -1,6 +1,6 @@
 This is a fun project meant to be a light and humorous application. We were tasked with making an AirBnB clone and also advised to not take the theme too seriously. Thus, we made Air Socks. Wet socks? Hole in a sock? Need a sock puppet? Air Socks has you covered.
 
-Web-first design with responsiveness for smaller devices coming later (maybe).
+Web-first design with responsiveness for smaller devices coming later.
 
 ## How to use
 
